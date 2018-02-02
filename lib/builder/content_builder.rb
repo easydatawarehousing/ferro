@@ -108,7 +108,6 @@ class ContentBuilder
 
     if Rails.configuration.x.prepend_asset_path.present?
       index.gsub!( "src=\"/" ,  "src=\"#{Rails.configuration.x.prepend_asset_path}/" )
-      index.gsub!( "href=\"/" , "href=\"#{Rails.configuration.x.prepend_asset_path}/" )
     end
 
     index
