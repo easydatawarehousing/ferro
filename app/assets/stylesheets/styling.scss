@@ -45,7 +45,7 @@ body {
   width:            34px;
   height:           32px;
   background:       $yellow;
-  background-image: url('/back.png');
+  background-image: url('/ferro/back.png');
   background-size:  cover;
   border:           none;
 }
@@ -79,7 +79,7 @@ body {
 
 .header-nav-search .ferro-form-search-submit {
   background:       $yellow;
-  background-image: url('/search.png');
+  background-image: url('/ferro/search.png');
   background-size:  cover;
   border:           none;
   width:            32px;
@@ -91,7 +91,7 @@ body {
   width:            21px;
   height:           32px;
   background:       $yellow;
-  background-image: url('/nosplit.png');
+  background-image: url('/ferro/nosplit.png');
   background-size:  cover;
   border:           none;
   margin:           0 0 0 25px;
@@ -102,10 +102,10 @@ body {
   }
 }
 .header-nav .article-hidden {
-  background-image: url('/split.png');
+  background-image: url('/ferro/split.png');
 }
 .header-nav .aside-hidden {
-  background-image: url('/split.png');
+  background-image: url('/ferro/split.png');
   transform: rotate(180deg);
 }
 
@@ -118,7 +118,7 @@ body {
 
 .header-nav-share .ferro-pull-down-title {
   background:       $yellow;
-  background-image: url('/share.png');
+  background-image: url('/ferro/share.png');
   background-size:  cover;
   border:           none;
   width:            34px;
@@ -156,7 +156,7 @@ body {
   position:         absolute;
   left:             83px;
   background:       $yellow;
-  background-image: url('/ferro_logo_83.png');
+  background-image: url('/ferro/ferro_logo_83.png');
   border:           0;
   transition:       transform 1.2s ease;
 }
@@ -238,7 +238,7 @@ body {
 .menu-item .menu-image {
   width:            40px;
   height:           40px;
-  background-image: url('/menu_unread.png');
+  background-image: url('/ferro/menu_unread.png');
 }
 
 .menu-item .ferro-element-anchor {
@@ -262,11 +262,11 @@ body {
 }
 
 .menu-item-visited .menu-image {
-  background-image: url('/menu_read.png');
+  background-image: url('/ferro/menu_read.png');
 }
 
 .menu-item-selected .menu-image {
-  background-image: url('/menu_active.png');
+  background-image: url('/ferro/menu_active.png');
 }
 
 .menu-spacer {
@@ -415,11 +415,11 @@ body {
 }
 
 .tic-tac-toe .player {
-  background-image:       url('/ttt_player.png');
+  background-image:       url('/ferro/ttt_player.png');
 }
 
 .tic-tac-toe .computer {
-  background-image:       url('/ttt_computer.png');
+  background-image:       url('/ferro/ttt_computer.png');
 }
 
 .tic-tac-toe .score p {

@@ -87,4 +87,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Asset prepend_path
+  config.x.prepend_asset_path = '/ferro'
 end

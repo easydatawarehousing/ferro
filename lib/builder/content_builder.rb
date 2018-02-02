@@ -88,10 +88,7 @@ class ContentBuilder
   end
 
   def create_index_files
-    index = HomeController.
-      render(:index).
-      gsub("\n    ", '').
-      gsub("\n  ", '')
+    index = render_index
 
     puts "\nCreate page: '/'"
     save_file(@target_path.join("index.html"), index)
@@ -103,12 +100,26 @@ class ContentBuilder
     end
   end
 
+  def render_index
+    index = HomeController.
+      render(:index).
+      gsub("\n    ", '').
+      gsub("\n  ", '')
+
+    if Rails.configuration.x.prepend_asset_path.present?
+      index.gsub!( "src=\"/" ,  "src=\"/#{Rails.configuration.x.prepend_asset_path}/" )
+      index.gsub!( "href=\"/" , "href=\"/#{Rails.configuration.x.prepend_asset_path}/" )
+    end
+
+    index
+  end
+
   def copy_public_files
     puts "\nCopying public files"
-    Dir.entries(Rails.root.join('public')).each do |f|
+    Dir.entries(Rails.root.join("public#{Rails.configuration.x.prepend_asset_path}")).each do |f|
       if f =~ /.png|.ico|.txt|.jpg\z/
         FileUtils.cp(
-          Rails.root.join("public/#{f}"),
+          Rails.root.join("public#{Rails.configuration.x.prepend_asset_path}/#{f}"),
           @target_path.join(f)
         )
       end

@@ -1,7 +1,7 @@
 class Main < FerroElementArticle
 
   DEFAULT_CONTENT = 'Loading page ...'
-  CONTENT_URL     = '/main_content.json'
+  CONTENT_URL     = '/ferro/main_content.json'
 
   def cascade
     @articles          = []
