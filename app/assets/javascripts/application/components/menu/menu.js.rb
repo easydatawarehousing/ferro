@@ -34,7 +34,7 @@ class MenuItem < FerroElementBlock
       FerroElementAnchor,
       {
         content: @options[:name].capitalize,
-        href: '/' + @options[:name].downcase
+        href: '/ferro/' + @options[:name].downcase
       }
     )
   end

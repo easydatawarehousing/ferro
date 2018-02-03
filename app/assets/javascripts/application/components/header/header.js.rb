@@ -7,12 +7,12 @@ class Header < FerroElementHeader
 
   def set_prev(name)
     bar.prev.set_text(name ? '◄ ' + name.capitalize : nil)
-    bar.prev.update_href(name ? "/#{name.downcase}" : nil)
+    bar.prev.update_href(name ? "/ferro/#{name.downcase}" : nil)
   end
 
   def set_next(name)
     bar.next.set_text(name ? name.capitalize + ' ►' : nil)
-    bar.next.update_href(name ? "/#{name.downcase}" : nil)
+    bar.next.update_href(name ? "/ferro/#{name.downcase}" : nil)
   end
 end
 
@@ -150,7 +150,7 @@ class HeaderNext < FerroElementAnchor;end
 
 class DropdownMenu < FerroFormSelect
   def changed
-    router.go_to('/' + selection[:option])
+    router.go_to('/ferro/' + selection[:option])
   end
 end
 

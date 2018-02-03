@@ -130,7 +130,7 @@ class Main < FerroElementArticle
     @last_search_value = value
     hits = count_hits(@last_search_value)
 
-    router.replace_state('/search')
+    router.replace_state('/ferro/search')
     title.set_text    'Search results'
     subtitle.set_text "Search term: '#{@last_search_value}'"
     content.html      ''
@@ -180,12 +180,7 @@ class Main < FerroElementArticle
 
   def path_to_name(pathname)
     return nil if pathname.to_s.empty? || pathname.to_s.strip == '/'
-    path = remove_leading_slash(pathname)
-    path.gsub('/', '_')
-  end
-
-  def remove_leading_slash(path)
-    path[0] == '/' ? path[1..-1] : path
+    pathname.downcase.sub('/ferro/', '').gsub('/', '_')
   end
 
   def parse_md(content)
@@ -212,7 +207,7 @@ class SearchHit < FerroElementBlock
       FerroElementAnchor,
       {
         content: @title,
-        href: '/' + @name.downcase
+        href: '/ferro/' + @name.downcase
       }
     )
 
