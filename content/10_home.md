@@ -36,7 +36,7 @@ and be done. Well, and this should come as no surprise, we can!
 
 __Opal-Ferro gem__  
 Let me introduce the Opal-Ferro gem. [Opal](http://opalrb.com/) is that wonderful piece of kit
-that allows us to run Ruby in the webbrowser. [Ferro](https://github.com/easydatawarehousing)
+that allows us to run Ruby in the webbrowser. [Ferro](https://github.com/easydatawarehousing/opal-ferro)
 is a small Ruby library that manages the webbrowsers DOM, erradicates the need for searching
 for elements and introduces some handy naming conventions to simplify CSS design.
 
