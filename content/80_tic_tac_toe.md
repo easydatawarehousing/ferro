@@ -77,7 +77,7 @@ end
 __The game board__  
 Note that the logic for calculating the computers move
 is in a separate (non Ferro) class: TicTacToeGameEngine
-sourcecode can be found [here](https://github.com/easydatawarehousing/ferro/blob/master/source/app/javascripts/application/components/aside/tic_tac_toe/tic_tac_toe_game_engine.js.rb).
+sourcecode can be found [here](https://github.com/easydatawarehousing/ferro/blob/master/app/assets/javascripts/application/components/aside/tic_tac_toe/tic_tac_toe_game_engine.js.rb).
 
 ~~~ ruby
 class Board < FerroElementBlock
