@@ -92,9 +92,8 @@ class Main < FerroElementArticle
   end
 
   def update_page(pagename)
-    `if (typeof(ga) === "function") {
-      ga("set", "location", window.location.href);
-      ga("send", "pageview");
+    `if (typeof(gtag) === "function") {
+      gtag('event','page_view',{'page_path': window.location.href});
     }`
 
     set_attribute('scrollTop', 0)
