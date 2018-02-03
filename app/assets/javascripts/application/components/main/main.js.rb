@@ -179,7 +179,10 @@ class Main < FerroElementArticle
   end
 
   def path_to_name(pathname)
-    return nil if pathname.to_s.empty? || pathname.to_s.strip == '/'
+    return nil if pathname.to_s.empty? ||
+                  pathname.to_s.strip == '/' ||
+                  pathname.to_s.strip == '/ferro/'
+
     pathname.downcase.sub('/ferro/', '').gsub('/', '_')
   end
 
