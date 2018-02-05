@@ -182,7 +182,7 @@ class Main < FerroElementArticle
                   pathname.to_s.strip == '/' ||
                   pathname.to_s.strip == '/ferro/'
 
-    pathname.downcase.sub('/ferro/', '').gsub('/', '_')
+    pathname.strip.downcase.sub('/ferro/', '').gsub('/', '')
   end
 
   def parse_md(content)
