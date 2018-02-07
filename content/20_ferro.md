@@ -9,15 +9,15 @@ __How does it work?__
 Ferro uses an object oriented programming style. You instantiate an object, that object
 in turn instantiates more child objects and add these as instance variables to itself.
 And so on, producing a hierarchy of object instances.
-This is called the Ruby Object Model (ROM).
+This is called the Master Object Model (MOM).
 
-When an object is instanciated in the ROM, Ferro will add an element to the webbrowsers
-Document Object Model (DOM). The ROM keeps a reference to every DOM element.
+When an object is instanciated in the MOM, Ferro will add an element to the webbrowsers
+Document Object Model (DOM). The MOM keeps a reference to every DOM element.
 This erradicates the need for element lookups (jquery $ searches).
-If you need an element you know where to find it in the ROM.
+If you need an element you know where to find it in the MOM.
 Getter methods are automatically added by Ferro for easy access to instance variables.
 
-Each object in the ROM inherits from a Ferro class.
+Each object in the MOM inherits from a Ferro class.
 Which Ferro class you use determines what type of DOM element will be created.
 All Ferro classes inherit from one base class: FerroElement.
 For most DOM elements in the html specs there is a corresponding Ferro class.
@@ -63,7 +63,7 @@ Here are some of Ferro\'s disadvantages
 - Separate content for screenreaders and javascript disabled browsers is needed
 - Coding errors may disable (parts of) the webapp. A good set of (integration)tests
   is useful
-- Somewhat higher browser memory usage to store the ROM
+- Somewhat higher browser memory usage to store the MOM
 - No support for older browsers
 
 __Is Ferro finished?__  

@@ -33,7 +33,7 @@ This modified html is passed on to the webbrowser to let that add it to the DOM.
 
 Ferro does not use any html for modifying the DOM state.
 You just define a desired memory state in Ruby,
-called the Ruby Object Model (ROM), which modifies the DOM for you.
+called the Master Object Model (MOM), which modifies the DOM for you.
 
 For the non-structural parts of an application, i.e. the (textual) content,
 a language that describes content and its markup is still very useful.
@@ -75,15 +75,15 @@ builds all the necessary files (html header, js, css, json) and puts these
 in the appropriate folders. The AJAX calls that your browser makes just
 read static json files.
 
-__Navigating the Ruby Object Model__  
-There are two ways to navigate around the ROM: upward and downward.
-Every object in the ROM knows its parent. If an event is received by an
+__Navigating the Master Object Model__  
+There are two ways to navigate around the MOM: upward and downward.
+Every object in the MOM knows its parent. If an event is received by an
 object like a button, the parent of that object usually can handle the
 event.  
 Searching upward further than one parent quickly becomes difficult to
 follow. So you can always search downward starting from the top.
-Every object in the ROM can access the root object.
-From the root you can access all ROM objects.  
+Every object in the MOM can access the root object.
+From the root you can access all MOM objects.  
 There is a shortcut to find an object starting from the nearest element
 in the hierarchy that is a component. All semantical elements
 (like header and section) are components. All objects that are children

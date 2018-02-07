@@ -81,4 +81,4 @@ and we don\'t have to divide our attention over
 separate html and javascript files.
 
 In real life applications, where more logic is needed,
-the ROM construction parts will blend into the background.
+the Master-Object-Model construction will blend into the background.

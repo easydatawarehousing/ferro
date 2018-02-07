@@ -20,7 +20,7 @@ Functionally we need the following elements:
 - a list of todo items
 - the actual todo items, showing a description and a checkbox to mark the item as completed
 
-Now we translate these functional elements into a ROM.
+Now we translate these functional elements into a Master Object Model.
 Note that the code listed below is the actual code running the sample application.
 And apart from some CSS rules it is everything we need.
 
