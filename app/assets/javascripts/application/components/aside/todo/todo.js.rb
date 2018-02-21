@@ -104,7 +104,7 @@ class TodoItem < FerroElementBlock
   end
 
   def cascade
-    add_child :cb,      TodoCheckBox, type: :checkbox
+    add_child :cb,      TodoCheckBox
     add_child :content, TodoLabel,    content: @content, for: cb.object_id
   end
 
