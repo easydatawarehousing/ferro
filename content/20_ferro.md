@@ -90,6 +90,6 @@ __What we don\'t need when using Ferro__
 - HTML
 - Javascript DOM finders (like jQuery, Zepto, \.\.\.)
 - Javascript libraries/frameworks that extend html (like Ember, Angular, JSX, Vue, Stimulus)
-- Shadow DOM Javascript frameworks (like React)
+- Virtual DOM Javascript frameworks (like React)
 
 Enough with the introduction to Ferro. Let\'s look at some examples.
