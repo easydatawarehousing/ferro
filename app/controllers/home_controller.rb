@@ -18,4 +18,9 @@ class HomeController < ApplicationController
 
     send_file(content_file, filename: 'main_content.json',  type: 'application/json')
   end
+
+  def post_test
+    p params
+    render json: { status: 'Ok' }
+  end
 end

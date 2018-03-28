@@ -192,6 +192,23 @@ class Main < Ferro::Component::Article
   def event_log
     root.aside.log
   end
+
+  # def xhr_post_start
+  #   Ferro::Xhr.new(
+  #     '/post_test',
+  #     method(:xhr_post_success),
+  #     method(:xhr_post_error),
+  #     method: :post,
+  #     body: { test: 1 }
+  #   )
+  # end
+  # def xhr_post_success(response)
+  #   puts response
+  # end
+  # def xhr_post_error(status, msg)
+  #   puts status
+  #   puts msg
+  # end
 end
 
 class SearchHit < Ferro::Element::Block
