@@ -13,12 +13,12 @@ With the splitscreen icon at the top of the screen you can toggle visibility of 
 example.
 
 ~~~ ruby
-class Demo < FerroElementComponent
+class Demo < Ferro::Component::Base
   def cascade
     # Add the title
     add_child(
       :title,
-      FerroElementText,
+      Ferro::Element::Text,
       size: 4,
       content: 'Title'
     )
@@ -38,7 +38,7 @@ class Demo < FerroElementComponent
   end
 end
 
-class DemoButton < FerroFormButton
+class DemoButton < Ferro::Form::Button
   def clicked
     # Every element knows its parent
     parent.rotate_title
@@ -52,7 +52,7 @@ which should look more familiar to a Ruby programmer:
 ~~~ ruby
 class Demo
   def initialize
-    @title = FerroElementText.new(size: 4, content: 'Title')
+    @title = Ferro::Element::Text.new(size: 4, content: 'Title')
     @btn   = DemoButton.new(content: 'Click me')
   end
 end
@@ -69,7 +69,7 @@ is created. The cascade hook is called when the object is ready
 to create child objects.  
 In this example most of the action happens in the _cascade_ method.
 
-By inheriting from _FerroFormButton_, _DemoButton_ has access
+By inheriting from _Ferro::Form::Button_, _DemoButton_ has access
 to the click event handler. After a click occurred, it signals
 its parent (_Demo_) to rotate the title text.
 

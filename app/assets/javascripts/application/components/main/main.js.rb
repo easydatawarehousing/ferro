@@ -1,16 +1,16 @@
-class Main < FerroElementArticle
+class Main < Ferro::Component::Article
 
   DEFAULT_CONTENT = 'Loading page ...'
   CONTENT_URL     = '/ferro/main_content.json'
 
   def cascade
     @articles          = []
-    @id                = FerroSequence.new 'search_'
+    @id                = Ferro::Sequence.new 'search_'
     @last_search_value = 'Ferro'
 
-    add_child :title,    FerroElementText, { size: 1 }
-    add_child :subtitle, FerroElementText, { size: 4 }
-    add_child :content,  FerroElementText, { content: DEFAULT_CONTENT}
+    add_child :title,    Ferro::Element::Text, { size: 1 }
+    add_child :subtitle, Ferro::Element::Text, { size: 4 }
+    add_child :content,  Ferro::Element::Text, { content: DEFAULT_CONTENT}
 
     add_state :hidden
 
@@ -18,7 +18,7 @@ class Main < FerroElementArticle
   end
 
   def xhr_start(url)
-    FerroXhr.new(url, method(:xhr_success), method(:xhr_error), timeout: 10000 )
+    Ferro::Xhr.new(url, method(:xhr_success), method(:xhr_error), timeout: 10000 )
   end
 
   def xhr_success(response)
@@ -186,7 +186,6 @@ class Main < FerroElementArticle
   end
 
   def parse_md(content)
-    # `document.parse_md(unescape(#{content}));`
     `unescape(#{content})`
   end
 
@@ -195,7 +194,7 @@ class Main < FerroElementArticle
   end
 end
 
-class SearchHit < FerroElementBlock
+class SearchHit < Ferro::Element::Block
 
   def before_create
     @title = option_replace :title
@@ -206,7 +205,7 @@ class SearchHit < FerroElementBlock
   def cascade
     add_child(
       :title,
-      FerroElementAnchor,
+      Ferro::Element::Anchor,
       {
         content: @title,
         href: '/ferro/' + @name.downcase
@@ -215,7 +214,7 @@ class SearchHit < FerroElementBlock
 
     add_child(
       :content,
-      FerroElementText,
+      Ferro::Element::Text,
       {
         content: 'Found ' + @hits.
           map { |k,v| k != :total ? "'#{k}' #{v} times": nil }.

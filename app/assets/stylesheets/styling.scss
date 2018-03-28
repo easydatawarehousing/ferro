@@ -58,7 +58,7 @@ body {
   text-align:       right;
 }
 
-.header-nav-search .ferro-form-search-input {
+.header-nav-search .ferro-combo-search-input {
   width:            0px;
   height:           25px;
   border:           none;
@@ -77,7 +77,7 @@ body {
   }
 }
 
-.header-nav-search .ferro-form-search-submit {
+.header-nav-search .ferro-combo-search-submit {
   background:       $yellow;
   background-image: url('/ferro/search.png');
   background-size:  cover;
@@ -116,7 +116,7 @@ body {
   flex-grow:        1;
 }
 
-.header-nav-share .ferro-pull-down-title {
+.header-nav-share .ferro-combo-pull-down-title {
   background:       $yellow;
   background-image: url('/ferro/share.png');
   background-size:  cover;
@@ -126,19 +126,19 @@ body {
   margin:           0 0 5px auto;
 }
 
-.header-nav-share .ferro-pull-down-items .header-nav-share-link {
+.header-nav-share .ferro-combo-pull-down-items .header-nav-share-link {
   background:       $darkgrey;
   height:           20px;
   margin:           0;
   padding:          10px;
 }
-.header-nav-share .ferro-pull-down-items .header-nav-share-link:hover {
+.header-nav-share .ferro-combo-pull-down-items .header-nav-share-link:hover {
   background:       $grey;
 }
-.header-nav-share .ferro-pull-down-items {
+.header-nav-share .ferro-combo-pull-down-items {
   display:          none;
 }
-.pull-down-open .ferro-pull-down-items {
+.pull-down-open .ferro-combo-pull-down-items {
   display:          inherit;
   position:         fixed;
   right:            15px;
@@ -376,14 +376,14 @@ body {
   margin:         10px 0;
 }
 
-.todo-entry .ferro-form-search-input {
+.todo-entry .ferro-combo-search-input {
   margin-right:   5px;
   height:         14px;
   width:          70%;
   max-width:      250px;
 }
 
-.todo-entry .ferro-form-search-submit, .tic-tac-toe .new-game-button {
+.todo-entry .ferro-combo-search-submit, .tic-tac-toe .new-game-button {
   border:         1px solid $black;
   background:     $black;
   color:          $white;

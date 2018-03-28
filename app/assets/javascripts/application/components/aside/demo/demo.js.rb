@@ -1,8 +1,8 @@
-class Demo < FerroElementComponent
+class Demo < Ferro::Component::Base
   def cascade
     add_child(
       :title,
-      FerroElementText,
+      Ferro::Element::Text,
       size: 4,
       content: 'Title'
     )
@@ -24,7 +24,7 @@ class Demo < FerroElementComponent
   end
 end
 
-class DemoButton < FerroFormButton
+class DemoButton < Ferro::Form::Button
   def clicked
     parent.rotate_title
   end

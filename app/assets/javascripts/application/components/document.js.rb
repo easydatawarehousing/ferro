@@ -1,4 +1,4 @@
-class Document < FerroDocument
+class Document < Ferro::Document
 
   def cascade
     add_child :header, Header
@@ -15,7 +15,7 @@ class Document < FerroDocument
   end
 end
 
-class Analytics < FerroElementScript
+class Analytics < Ferro::Element::Script
   def load
     `document.greeter = function() { return 'Ferro says: Hello' }`
   end

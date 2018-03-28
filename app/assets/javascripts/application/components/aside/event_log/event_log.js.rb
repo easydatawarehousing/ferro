@@ -1,16 +1,16 @@
-class EventLog < FerroElementComponent
+class EventLog < Ferro::Component::Base
 
   MAX_LOG_LINES = 10
 
   def cascade
     add_child(
       :title,
-      FerroElementText,
+      Ferro::Element::Text,
       size: 4,
       content: 'Event history'
     )
 
-    add_child :log, FerroElementList
+    add_child :log, Ferro::Element::List
 
     # Initially hidden
     add_state :hidden, true
@@ -18,7 +18,7 @@ class EventLog < FerroElementComponent
 
   def add_log_entry(entry)
     log.add_item(
-      FerroElementListItem,
+      Ferro::Element::ListItem,
       content: entry,
       prepend: log.last_item
     )

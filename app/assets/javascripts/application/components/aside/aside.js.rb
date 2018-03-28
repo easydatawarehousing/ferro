@@ -1,6 +1,4 @@
-# require 'application/ferro/components/ferro'
-
-class Aside < FerroElementAside
+class Aside < Ferro::Component::Aside
 
   def cascade
     add_child :demo,      Demo

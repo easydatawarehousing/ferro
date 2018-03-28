@@ -10,10 +10,10 @@ The TicTacToe component defines a new-game button, the scores and
 the actual game board.
 
 ~~~ ruby
-class TicTacToe < FerroElementComponent
+class TicTacToe < Ferro::Component::Base
 
   def cascade
-    add_child :title,    FerroElementText, size: 4, content: 'Tic Tac Toe'
+    add_child :title,    Ferro::Element::Text, size: 4, content: 'Tic Tac Toe'
     add_child :new_game, NewGameButton, content: 'New game', disabled: true
     add_child :board,    Board
     add_child :score,    Score
@@ -23,7 +23,7 @@ class TicTacToe < FerroElementComponent
   end
 end
 
-class NewGameButton < FerroFormButton
+class NewGameButton < Ferro::Form::Button
   def clicked
     disable
     parent.board.start_new_game
@@ -36,14 +36,14 @@ The \'Player wins\' line may be omitted since the
 computer is unbeatable. At least at this game.
 
 ~~~ ruby
-class Score < FerroElementBlock
+class Score < Ferro::Element::Block
 
   def cascade
-    add_child :games,    FerroElementText
-    add_child :player,   FerroElementText
-    add_child :computer, FerroElementText
-    add_child :draws,    FerroElementText
-    add_child :result,   FerroElementText, class: 'result'
+    add_child :games,    Ferro::Element::Text
+    add_child :player,   Ferro::Element::Text
+    add_child :computer, Ferro::Element::Text
+    add_child :draws,    Ferro::Element::Text
+    add_child :result,   Ferro::Element::Text, class: 'result'
 
     @total = @player = @computer = @draws = 0
   end
@@ -80,7 +80,7 @@ is in a separate (non Ferro) class: TicTacToeGameEngine
 sourcecode can be found [here](https://github.com/easydatawarehousing/ferro/blob/master/app/assets/javascripts/application/components/aside/tic_tac_toe/tic_tac_toe_game_engine.js.rb).
 
 ~~~ ruby
-class Board < FerroElementBlock
+class Board < Ferro::Element::Block
 
   def cascade
     9.times do |i|
@@ -145,7 +145,7 @@ Cells are defined as buttons. Every button has 2 states added to show
 if the player or the computer owns the cell.
 
 ~~~ ruby
-class Cell < FerroFormButton
+class Cell < Ferro::Form::Button
   def before_create
     @index = option_replace :index
   end

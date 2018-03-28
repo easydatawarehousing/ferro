@@ -1,20 +1,13 @@
 require_relative 'tic_tac_toe_game_engine'
 
-class TicTacToe < FerroElementComponent
-
-  # def style
-  #   {
-  #     'background-color' => 'blue',
-  #     'color'            => 'yellow',
-  #   }
-  # end
+class TicTacToe < Ferro::Component::Base
 
   def after_create
     add_state :hidden, true
   end
 
   def cascade
-    add_child :title,    FerroElementText, size: 4, content: 'Tic Tac Toe'
+    add_child :title,    Ferro::Element::Text, size: 4, content: 'Tic Tac Toe'
     add_child :new_game, NewGameButton, content: 'New game', disabled: true
     add_child :board,    Board
     add_child :score,    Score
@@ -24,21 +17,21 @@ class TicTacToe < FerroElementComponent
   end
 end
 
-class NewGameButton < FerroFormButton
+class NewGameButton < Ferro::Form::Button
   def clicked
     disable
     parent.board.start_new_game
   end
 end
 
-class Score < FerroElementBlock
+class Score < Ferro::Element::Block
 
   def cascade
-    add_child :games,    FerroElementText
-    add_child :player,   FerroElementText
-    add_child :computer, FerroElementText
-    add_child :draws,    FerroElementText
-    add_child :result,   FerroElementText, class: 'result'
+    add_child :games,    Ferro::Element::Text
+    add_child :player,   Ferro::Element::Text
+    add_child :computer, Ferro::Element::Text
+    add_child :draws,    Ferro::Element::Text
+    add_child :result,   Ferro::Element::Text, class: 'result'
 
     @total = @player = @computer = @draws = 0
   end
@@ -68,7 +61,7 @@ class Score < FerroElementBlock
   end
 end
 
-class Board < FerroElementBlock
+class Board < Ferro::Element::Block
 
   def cascade
     9.times do |i|
@@ -127,7 +120,7 @@ class Board < FerroElementBlock
   end
 end
 
-class Cell < FerroFormButton
+class Cell < Ferro::Form::Button
   def before_create
     @index = option_replace :index
   end

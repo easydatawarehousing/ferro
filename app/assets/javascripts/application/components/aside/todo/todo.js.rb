@@ -1,8 +1,8 @@
-class Todo < FerroElementComponent
+class Todo < Ferro::Component::Base
 
   def cascade
-    add_child :title,  FerroElementText, size: 4, content: 'Todo list'
-    add_child :entry,  TodoEntry,        button_text: 'Add', placeholder: 'New item ...'
+    add_child :title,  Ferro::Element::Text, size: 4, content: 'Todo list'
+    add_child :entry,  TodoEntry, button_text: 'Add', placeholder: 'New item ...'
     add_child :status, TodoStatus
     add_child :list,   TodoList
 
@@ -27,7 +27,7 @@ end
 
 ### TodoEntry ###
 
-class TodoEntry < FerroFormSearch
+class TodoEntry < Ferro::Combo::Search
 
   def submitted(value)
     parent.add_list_item value
@@ -36,10 +36,10 @@ end
 
 ### TodoStatus ###
 
-class TodoStatus < FerroElementBlock
+class TodoStatus < Ferro::Element::Block
 
   def cascade
-    add_child :info,  FerroElementText
+    add_child :info,  Ferro::Element::Text
     add_child :clear, TodoStatusClear, content: '[clear]', href: ''
   end
 
@@ -48,7 +48,7 @@ class TodoStatus < FerroElementBlock
   end
 end
 
-class TodoStatusClear < FerroElementAnchor
+class TodoStatusClear < Ferro::Element::Anchor
 
   def clicked
     component.clear_list
@@ -57,11 +57,11 @@ end
 
 ### TodoList ###
 
-class TodoList < FerroForm
+class TodoList < Ferro::Form::Base
 
   def cascade
     @list = []
-    @id   = FerroSequence.new 'item_'
+    @id   = Ferro::Sequence.new 'item_'
 
     [
       'Learn Ruby',
@@ -97,7 +97,7 @@ class TodoList < FerroForm
   end
 end
 
-class TodoItem < FerroElementBlock
+class TodoItem < Ferro::Element::Block
 
   def before_create
     @content = option_replace :content
@@ -118,14 +118,14 @@ class TodoItem < FerroElementBlock
   end
 end
 
-class TodoCheckBox < FerroFormCheckBox
+class TodoCheckBox < Ferro::Form::CheckBox
 
   def clicked
     parent.toggle_content checked?
   end
 end
 
-class TodoLabel < FerroFormLabel
+class TodoLabel < Ferro::Form::Label
 
   def after_create
     add_state :completed

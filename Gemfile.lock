@@ -81,7 +81,7 @@ GEM
       tilt (>= 1.4)
     opal-activesupport (0.3.1)
       opal (>= 0.5.0, < 1.0.0)
-    opal-ferro (0.10.0)
+    opal-ferro (0.10.1)
       opal (~> 0.10)
     opal-jquery (0.4.2)
       opal (>= 0.7.0, < 0.11.0)
@@ -181,7 +181,7 @@ DEPENDENCIES
   kramdown
   listen (>= 3.0.5, < 3.2)
   opal
-  opal-ferro
+  opal-ferro (~> 0.10.1)
   opal-rails
   puma (~> 3.7)
   rails (~> 5.1.0)

@@ -28,9 +28,9 @@ __The todo component__
 This defines all the needed parts (except todo items) and defines some helper methods.
 
 ~~~ ruby
-class Todo < FerroElementComponent
+class Todo < Ferro::Component::Base
   def cascade
-    add_child :title,  FerroElementText, size: 4, content: 'Todo list'
+    add_child :title,  Ferro::Element::Text, size: 4, content: 'Todo list'
     add_child :entry,  TodoEntry, button_text: 'Add', placeholder: 'New item ...'
     add_child :status, TodoStatus
     add_child :list,   TodoList
@@ -58,7 +58,7 @@ This is easy since we can use a ready made Ferro component. The same
 component is used in the search function at the top the screen.
 
 ~~~ ruby
-class TodoEntry < FerroFormSearch
+class TodoEntry < Ferro::Combo::Search
   def submitted(value)
     parent.add_list_item value
   end
@@ -69,9 +69,9 @@ __Status bar__
 Just a text to show a count of items and a \'clear\' link.
 
 ~~~ ruby
-class TodoStatus < FerroElementBlock
+class TodoStatus < Ferro::Element::Block
   def cascade
-    add_child :info,  FerroElementText
+    add_child :info,  Ferro::Element::Text
     add_child :clear, TodoStatusClear, content: '[clear]', href: ''
   end
 
@@ -80,13 +80,14 @@ class TodoStatus < FerroElementBlock
   end
 end
 
-class TodoStatusClear < FerroElementAnchor
+class TodoStatusClear < Ferro::Element::Anchor
   def clicked
     # We could use: parent.parent.clear_list
 
     # Here we use the top-down way to access the same method.
     # 'component' points to the nearest element in the
-    # hierarchy that is a Ferro component
+    # hierarchy that is a Ferro component.
+    # In this case this the Todo instance.
     component.clear_list
   end
 end
@@ -96,10 +97,10 @@ __List of todo items__
 The list to hold and manage the todo items. It adds 3 default items.
 
 ~~~ ruby
-class TodoList < FerroForm
+class TodoList < Ferro::Form::Base
   def cascade
     @list = []
-    @id   = FerroSequence.new 'item_'
+    @id   = Ferro::Sequence.new 'item_'
 
     [
       'Learn Ruby',
@@ -140,14 +141,14 @@ __Todo item__
 A checkbox with a label.
 
 ~~~ ruby
-class TodoItem < FerroElementBlock
+class TodoItem < Ferro::Element::Block
   def before_create
     @content = option_replace :content
   end
 
   def cascade
     add_child :cb,      TodoCheckBox
-    add_child :content, TodoLabel,    content: @content, for: cb.object_id
+    add_child :content, TodoLabel, content: @content, for: cb.object_id
   end
 
   def toggle_content(completed)
@@ -160,20 +161,20 @@ class TodoItem < FerroElementBlock
   end
 end
 
-class TodoCheckBox < FerroFormCheckBox
+class TodoCheckBox < Ferro::Form::CheckBox
   def clicked
     parent.toggle_content checked?
   end
 end
 
-class TodoLabel < FerroFormLabel
+class TodoLabel < Ferro::Form::Label
   def after_create
     add_state :completed
   end
 end
 ~~~
 
-Here we see the _add_state_ and _update_state_ methods being
+Here we see the _add\_state_ and _update\_state_ methods being
 used for the first time. A state is a boolean flag that you
 can add to any Ferro class. If it has a true state Ferro will add
 a CSS class with the same name to the DOM element.

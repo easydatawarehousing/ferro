@@ -12,7 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'opal'
-gem 'opal-ferro'
+gem 'opal-ferro', '~> 0.10.1'
 
 # Opal-rails is needed for sprockets. It includes
 # opal-jquery but jquery is not loaded in application.js

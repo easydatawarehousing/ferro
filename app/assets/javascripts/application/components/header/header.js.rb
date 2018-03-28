@@ -1,4 +1,4 @@
-class Header < FerroElementHeader
+class Header < Ferro::Component::Header
   def cascade
     add_child :nav,   HeaderNav
     add_child :bar,   HeaderBar
@@ -18,7 +18,7 @@ end
 
 ### Nav ###
 
-class HeaderNav < FerroElementBlock
+class HeaderNav < Ferro::Element::Block
   def cascade
     add_child :back,   HeaderNavBack
     add_child :search, HeaderNavSearch
@@ -37,19 +37,19 @@ class HeaderNav < FerroElementBlock
   end
 end
 
-class HeaderNavBack < FerroFormButton
+class HeaderNavBack < Ferro::Form::Button
   def clicked
     router.go_back
   end
 end
 
-class HeaderNavSearch < FerroFormSearch
+class HeaderNavSearch < Ferro::Combo::Search
   def submitted(value)
     root.main.do_search(value)
   end
 end
 
-class HeaderNavSplit < FerroFormButton
+class HeaderNavSplit < Ferro::Form::Button
   def after_create
     @tristate = 0
     add_state :aside_hidden
@@ -80,9 +80,9 @@ class HeaderNavSplit < FerroFormButton
   end
 end
 
-class HeaderNavShare < FerroPullDown;end
+class HeaderNavShare < Ferro::Combo::PullDown;end
 
-class HeaderNavShareLink < FerroFormBlock
+class HeaderNavShareLink < Ferro::Form::Block
 
   def before_create
     @options[:content] = 'Share on ' + self.class.name.scan(/^HeaderNavShare(.*)$/).first.first
@@ -125,7 +125,7 @@ end
 
 ### Header ###
 
-class HeaderBar < FerroElementBlock
+class HeaderBar < Ferro::Element::Block
   def cascade
     add_child :logo,  HeaderLogo
     add_child :prev,  HeaderPrev
@@ -134,7 +134,7 @@ class HeaderBar < FerroElementBlock
   end
 end
 
-class HeaderLogo < FerroFormButton
+class HeaderLogo < Ferro::Form::Button
   def after_create
     add_state :rotate
   end
@@ -145,10 +145,10 @@ class HeaderLogo < FerroFormButton
 end
 
 # Define classes so we can add some styling
-class HeaderPrev < FerroElementAnchor;end
-class HeaderNext < FerroElementAnchor;end
+class HeaderPrev < Ferro::Element::Anchor;end
+class HeaderNext < Ferro::Element::Anchor;end
 
-class DropdownMenu < FerroFormSelect
+class DropdownMenu < Ferro::Form::Select
   def changed
     router.go_to('/ferro/' + selection[:option])
   end
@@ -156,18 +156,13 @@ end
 
 ### Swirl ###
 
-class Swirl < FerroElementBlock
+class Swirl < Ferro::Element::Block
   def cascade
     add_child :swirl, SwirlCanvas
   end  
 end
 
-class SwirlCanvas < FerroElementCanvas
-
-  # var g = c.createLinearGradient(0,0, 0,h);
-  # g.addColorStop(0, "#fece3e");
-  # g.addColorStop(1, "#ececec");
-  # c.fillStyle = g;
+class SwirlCanvas < Ferro::Element::Canvas
 
   def after_create
     %x{

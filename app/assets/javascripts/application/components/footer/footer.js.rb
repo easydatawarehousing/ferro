@@ -1,33 +1,33 @@
-# Use:
+# For the ruby version of date handling use:
 #   require 'date'
 #   Date.today.year
-# for the ruby version of date handling
-# This adds ~11Kb to the final .js application that we don't need
+#
+# But this adds ~11Kb to the final .js file
 
-class Footer < FerroElementFooter
+class Footer < Ferro::Component::Footer
   def cascade
     add_child(
       :copyright,
-      FerroElementText,
+      Ferro::Element::Text,
       content: "Copyright 2017-#{`(new Date()).getFullYear()`} | Ivo Herweijer |"
     )
 
     add_child(
       :opalferro,
-      FerroElementExternalLink,
+      Ferro::Element::ExternalLink,
       content: 'Opal-Ferro',
       href: 'https://github.com/easydatawarehousing/opal-ferro'
     )
 
     add_child(
       :spacer,
-      FerroElementText,
+      Ferro::Element::Text,
       content: '|'
     )
 
     add_child(
       :ferro,
-      FerroElementExternalLink,
+      Ferro::Element::ExternalLink,
       content: 'Website source',
       href: 'https://github.com/easydatawarehousing/ferro'
     )

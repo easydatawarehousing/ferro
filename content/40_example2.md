@@ -13,25 +13,25 @@ like loading some content or you navigating through the application.
 Try it by going back and forward a page. The event log should show two new entries.
 
 ~~~ ruby
-class EventLog < FerroElementComponent
+class EventLog < Ferro::Component::Base
 
   MAX_LOG_LINES = 10
 
   def cascade
     add_child(
       :title,
-      FerroElementText,
+      Ferro::Element::Text,
       size: 4,
       content: 'Event history'
     )
 
-    add_child :log, FerroElementList
+    add_child :log, Ferro::Element::List
   end
 
   def add_log_entry(entry)
     # Add new entry to the front of the list
     log.add_item(
-      FerroElementListItem,
+      Ferro::Element::ListItem,
       content: entry,
       prepend: log.last_item
     )

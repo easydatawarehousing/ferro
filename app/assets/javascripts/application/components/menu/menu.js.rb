@@ -1,7 +1,7 @@
-class Menu < FerroElementNavigation
+class Menu < Ferro::Component::Navigation
 
   def cascade
-    add_child :items, FerroElementBlock
+    add_child :items, Ferro::Element::Block
   end
 
   def set_active_item(item_name)
@@ -15,23 +15,23 @@ class Menu < FerroElementNavigation
     items.add_child(symbolize(name), MenuItem, { name: name })
 
     if !last
-      items.add_child "spacer_#{symbolize(name)}", FerroElementBlock, { class: 'menu-spacer' }
+      items.add_child "spacer_#{symbolize(name)}", Ferro::Element::Block, { class: 'menu-spacer' }
     end
   end
 end
 
-class MenuItem < FerroElementBlock
+class MenuItem < Ferro::Element::Block
 
   def after_create
     add_states [:menu_item_selected, :menu_item_visited]
   end
 
   def cascade
-    add_child :img, FerroElementBlock, { class: 'menu-image' }
+    add_child :img, Ferro::Element::Block, { class: 'menu-image' }
 
     add_child(
       :link,
-      FerroElementAnchor,
+      Ferro::Element::Anchor,
       {
         content: @options[:name].capitalize,
         href: '/ferro/' + @options[:name].downcase
