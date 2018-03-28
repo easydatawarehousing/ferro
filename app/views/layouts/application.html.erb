@@ -17,6 +17,9 @@
         gtag('config', 'UA-113451133-1');
       </script>
     <% end %>
+    <% if Rails.env.development? %>
+      <%= csrf_meta_tags %>
+    <% end %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
