@@ -102,4 +102,4 @@ This website is a technical demo of the ferro library and gives some
 background information about how it works. The intended target audience of
 this website are webdevelopers. I didn\'t invest a lot of time
 in browser compatibility since webdevelopers tend to use modern browsers.
-Edge 15 is excluded because it doesn't fully support CSS grid.
+Edge 15 is excluded because it doesn\'t fully support CSS grid.
