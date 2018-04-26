@@ -92,10 +92,6 @@ class Main < Ferro::Component::Article
   end
 
   def update_page(pagename)
-    `if (typeof(gtag) === "function") {
-      gtag('event','page_view',{'page_path': window.location.href});
-    }`
-
     set_attribute('scrollTop', 0)
     title.set_text    @articles[pagename][:title]
     subtitle.set_text @articles[pagename][:subtitle]

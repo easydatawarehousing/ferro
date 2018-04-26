@@ -8,15 +8,6 @@
     <%= favicon_link_tag '/ferro/favicon.ico', type: 'image/ico' %>
     <%= favicon_link_tag '/ferro/favicon180.png', rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180' %>
     <%= favicon_link_tag '/ferro/favicon192.png', rel: 'icon', type: 'image/png', sizes: '192x192' %>
-    <% if Rails.env.production? %>
-      <%= javascript_include_tag 'https://www.googletagmanager.com/gtag/js?id=UA-112754908-1', async: true %>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-113451133-1', {'anonymize_ip': true});
-      </script>
-    <% end %>
     <% if Rails.env.development? %>
       <%= csrf_meta_tags %>
     <% end %>
